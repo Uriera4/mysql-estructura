@@ -73,12 +73,10 @@ CREATE TABLE Comandes (
     DataHoraComanda DATETIME NOT NULL,
     TipusComanda ENUM("repartiment a domicili", "recollida en botiga") NOT NULL,
     PreuTotal FLOAT NOT NULL,
-    IDTreballadorRepartiment INT,
     DataHoraLliurament DATETIME,
     PRIMARY KEY (IDComanda),
     FOREIGN KEY (IDClient) REFERENCES Clients(IDClient),
-    FOREIGN KEY (IDBotiga) REFERENCES Botigues(IDBotiga),
-    FOREIGN KEY (IDTreballadorRepartiment) REFERENCES Treballadors(IDTreballador)
+    FOREIGN KEY (IDBotiga) REFERENCES Botigues(IDBotiga)
 );
 CREATE TABLE ComandaProducte (
 	IDComanda INT NOT NULL,
@@ -102,7 +100,7 @@ INSERT INTO Categories (TipusProducte, IDCategoriaPizza) VALUES ("pizza", 1), ("
 INSERT INTO Productes (Nom, Descripcio, Imatge, Preu, IDCategoria) VALUES ("Vedella", "", "", 10, 1), ("Pollastre", "", "", 8, 1), ("Alberginia", "", "", 9, 1), ("Aigua", "", "", 2, 2), ("CocaCola", "", "", 3, 2),
 ("Cervesa", "", "", 4, 2), ("Margarita", "", "", 9, 3), ("Carbonara", "", "", 12, 3), ("Crispy Bacon", "", "", 12, 4), ("SuperPizza", "", "", 18, 5), ("7 Formatges", "", "", 15, 6);
 INSERT INTO Comandes (IDClient, IDBotiga, DataHoraComanda, TipusComanda, PreuTotal) VALUES (1, 2, '2024-01-16 19:44:32', "recollida en botiga", 72), (2, 3, '2024-01-16 19:53:05', "recollida en botiga", 29);
-INSERT INTO Comandes (IDClient, IDBotiga, DataHoraComanda, TipusComanda, PreuTotal, IDTreballadorRepartiment, DataHoraLliurament) VALUES (3, 1, '2024-01-15 14:03:22', "repartiment a domicili", 96, 2, '2024-01-15 14:47:34');
+INSERT INTO Comandes (IDClient, IDBotiga, DataHoraComanda, TipusComanda, PreuTotal, DataHoraLliurament) VALUES (3, 1, '2024-01-15 14:03:22', "repartiment a domicili", 96, '2024-01-15 14:47:34');
 INSERT INTO ComandaProducte (IDComanda, IDProducte, QuantitatProducte) VALUES (1, 2, 1), (1, 4, 2), (1, 6, 6), (1, 8, 3), (2, 1, 1), (2, 5, 5), (2, 6, 1), (3, 6, 24);
 
 /*Quantes begudes s'han venut a la Localitat de Barcelona i de quin tipus*/
